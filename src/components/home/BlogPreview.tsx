@@ -1,35 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Calendar, Clock } from "lucide-react";
-
-const posts = [
-  {
-    title: "Lake Sevan: Things to Do Beyond Swimming",
-    excerpt:
-      "Sevan, often called the Blue Pearl of Armenia, is one of the country's most beloved treasures.",
-    date: "23 Jun, 2026",
-    readTime: "4-5 min",
-    category: "Nature & Adventures",
-    href: "/blog/lake-sevan-things-to-do",
-  },
-  {
-    title: "Why Armenia Is Your Next Hiking Trip",
-    excerpt:
-      "Tired of crowded trails? Armenia offers adventure that seeps into your soul.",
-    date: "26 May, 2026",
-    readTime: "15-17 min",
-    category: "Where to go",
-    href: "/blog/armenia-hiking",
-  },
-  {
-    title: "Ecotourism in Farms, Vineyards & Villages",
-    excerpt:
-      "The real soul of Armenia isn't in the city buzz — it's in sun-ripened apricots and village bread.",
-    date: "28 Apr, 2026",
-    readTime: "10-12 min",
-    category: "Nature & Adventures",
-    href: "/blog/armenia-ecotourism",
-  },
-];
+import { blogPosts } from "@/lib/data";
 
 export function BlogPreview() {
   return (
@@ -46,10 +17,10 @@ export function BlogPreview() {
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
-          {posts.map((post) => (
+          {blogPosts.map((post) => (
             <Link
-              key={post.href}
-              href={post.href}
+              key={post.slug}
+              href={`/blog/${post.slug}`}
               className="group overflow-hidden rounded-2xl border border-border bg-white transition-shadow hover:shadow-md"
             >
               <div className="aspect-[16/9] bg-gradient-to-br from-primary/20 to-accent/20" />

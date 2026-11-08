@@ -1,31 +1,5 @@
 import { Star } from "lucide-react";
-
-const platforms = [
-  { name: "Tripadvisor", rating: "4.9", count: "16,700+" },
-  { name: "Google", rating: "4.9", count: "1,900+" },
-  { name: "Facebook", rating: "98%", count: "495+" },
-];
-
-const reviews = [
-  {
-    author: "Flora M.",
-    country: "United Kingdom",
-    date: "24 Jun, 2026",
-    text: "Excellent tour guided by Nina and gentle, considerate driving. Outmost satisfaction with the whole experience.",
-  },
-  {
-    author: "Adriana B.",
-    country: "Argentina",
-    date: "24 Jun, 2026",
-    text: "11 fantastic days in Armenia. Everything was perfect — the guides were professional and the hotel was great.",
-  },
-  {
-    author: "Andrey",
-    country: "Russia",
-    date: "26 Jun, 2026",
-    text: "The Yerevan city tour flew by — very interesting and informative. Thank you for the quick response!",
-  },
-];
+import { reviewPlatforms as platforms, reviews } from "@/lib/data";
 
 export function ReviewsSection() {
   return (
