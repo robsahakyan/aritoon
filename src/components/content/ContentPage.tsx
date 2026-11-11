@@ -1,20 +1,23 @@
 import Link from "next/link";
 import { ArrowRight, ChevronRight, Mail, MapPin, Phone } from "lucide-react";
 import { ReviewsSection } from "@/components/home/ReviewsSection";
-import { contactInfo } from "@/lib/data";
-import { childPages, pages, type PageContent } from "@/lib/pages";
+import { localeHref, type Locale } from "@/i18n/config";
+import { childPages, getContent, getPages } from "@/i18n";
+import { contact } from "@/i18n/structure";
+import type { PageContent } from "@/i18n/types";
 
-function Breadcrumbs({ path }: { path: string }) {
+function Breadcrumbs({ lang, path }: { lang: Locale; path: string }) {
+  const pages = getPages(lang);
   const segments = path.split("/");
   const crumbs = segments.map((_, i) => {
     const key = segments.slice(0, i + 1).join("/");
-    return { href: `/${key}`, label: pages[key]?.title ?? segments[i] };
+    return { href: localeHref(lang, `/${key}`), label: pages[key]?.title ?? segments[i] };
   });
 
   return (
     <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1 text-sm text-muted">
-      <Link href="/" className="hover:text-primary">
-        Home
+      <Link href={localeHref(lang, "/")} className="hover:text-primary">
+        {getContent(lang).ui.home}
       </Link>
       {crumbs.map((crumb, i) => (
         <span key={crumb.href} className="flex items-center gap-1">
@@ -32,11 +35,11 @@ function Breadcrumbs({ path }: { path: string }) {
   );
 }
 
-function ContactBlock() {
+function ContactBlock({ address }: { address: string }) {
   const items = [
-    { icon: MapPin, label: contactInfo.address },
-    { icon: Phone, label: contactInfo.phone, href: contactInfo.phoneHref },
-    { icon: Mail, label: contactInfo.email, href: `mailto:${contactInfo.email}` },
+    { icon: MapPin, label: address },
+    { icon: Phone, label: contact.phone, href: contact.phoneHref },
+    { icon: Mail, label: contact.email, href: `mailto:${contact.email}` },
   ];
   return (
     <div className="grid gap-4 sm:grid-cols-3">
@@ -56,14 +59,15 @@ function ContactBlock() {
   );
 }
 
-export function ContentPage({ path, page }: { path: string; page: PageContent }) {
-  const children = childPages(path);
+export function ContentPage({ lang, path, page }: { lang: Locale; path: string; page: PageContent }) {
+  const { ui } = getContent(lang);
+  const children = childPages(lang, path);
 
   return (
     <>
       <section className="bg-surface">
         <div className="mx-auto max-w-7xl px-4 py-12 md:py-16">
-          <Breadcrumbs path={path} />
+          <Breadcrumbs lang={lang} path={path} />
           <h1 className="mt-4 max-w-3xl text-3xl font-bold tracking-tight text-foreground md:text-5xl">
             {page.title}
           </h1>
@@ -92,8 +96,8 @@ export function ContentPage({ path, page }: { path: string; page: PageContent })
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {children.map((child) => (
               <Link
-                key={child.href}
-                href={child.href}
+                key={child.path}
+                href={localeHref(lang, child.path)}
                 className="group rounded-2xl border border-border bg-white p-6 transition-shadow hover:shadow-md"
               >
                 {child.meta && <p className="text-xs font-medium text-primary">{child.meta[0]}</p>}
@@ -102,7 +106,7 @@ export function ContentPage({ path, page }: { path: string; page: PageContent })
                 </h2>
                 <p className="mt-2 text-sm leading-relaxed text-muted">{child.summary}</p>
                 <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-primary">
-                  Learn more <ArrowRight className="h-3.5 w-3.5" />
+                  {ui.learnMore} <ArrowRight className="h-3.5 w-3.5" />
                 </span>
               </Link>
             ))}
@@ -111,7 +115,7 @@ export function ContentPage({ path, page }: { path: string; page: PageContent })
 
         {page.faqs && (
           <section className="max-w-3xl">
-            <h2 className="mb-4 text-2xl font-bold text-foreground">Frequently asked questions</h2>
+            <h2 className="mb-4 text-2xl font-bold text-foreground">{ui.faqHeading}</h2>
             <div className="divide-y divide-border rounded-2xl border border-border">
               {page.faqs.map((faq) => (
                 <details key={faq.q} className="group p-5">
@@ -125,23 +129,23 @@ export function ContentPage({ path, page }: { path: string; page: PageContent })
           </section>
         )}
 
-        {page.embed === "contact" && <ContactBlock />}
+        {page.embed === "contact" && <ContactBlock address={ui.address} />}
       </div>
 
-      {page.embed === "reviews" && <ReviewsSection />}
+      {page.embed === "reviews" && <ReviewsSection lang={lang} />}
 
       {!page.hideCta && (
         <section className="bg-primary text-white">
           <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 px-4 py-10 md:flex-row md:items-center">
             <div>
-              <h2 className="text-2xl font-bold">Ready to plan your trip?</h2>
-              <p className="mt-1 text-white/80">Our team in Yerevan will help you put it all together.</p>
+              <h2 className="text-2xl font-bold">{ui.ctaTitle}</h2>
+              <p className="mt-1 text-white/80">{ui.ctaText}</p>
             </div>
             <Link
-              href="/contacts"
+              href={localeHref(lang, "/contacts")}
               className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-primary hover:bg-surface"
             >
-              Contact us <ArrowRight className="h-4 w-4" />
+              {ui.ctaButton} <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </section>

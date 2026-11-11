@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  experimental: {
+    // The root layout lives in app/[lang], so unmatched URLs need a standalone 404 page.
+    globalNotFound: true,
+  },
 };
 
 export default nextConfig;
