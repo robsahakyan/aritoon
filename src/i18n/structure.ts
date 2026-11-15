@@ -1,16 +1,11 @@
 // Language-neutral site structure: paths, slugs, and data that is not translated.
 
 export const staticPaths = [
-  "accommodation",
-  "accommodation/apartments",
-  "accommodation/hotels",
   "tours",
-  "tours/group",
   "tours/private",
   "tours/packages",
   "transportation",
   "transportation/transfers",
-  "transportation/hourly",
   "business-events",
   "business-events/venues",
   "business-events/equipment",
@@ -57,20 +52,10 @@ export type BlogSlug = (typeof blogMeta)[number]["slug"];
 
 export const navStructure = [
   {
-    id: "accommodation",
-    href: "/accommodation",
-    children: [
-      { id: "whereToStay", href: "/accommodation" },
-      { id: "apartments", href: "/accommodation/apartments" },
-      { id: "hotels", href: "/accommodation/hotels" },
-    ],
-  },
-  {
     id: "tours",
     href: "/tours",
     children: [
       { id: "findTour", href: "/tours" },
-      { id: "groupTours", href: "/tours/group" },
       { id: "privateTours", href: "/tours/private" },
       { id: "tourPackages", href: "/tours/packages" },
     ],
@@ -79,9 +64,7 @@ export const navStructure = [
     id: "transportation",
     href: "/transportation",
     children: [
-      { id: "selectTransportation", href: "/transportation" },
       { id: "transfers", href: "/transportation/transfers" },
-      { id: "hourlyRental", href: "/transportation/hourly" },
     ],
   },
   {
@@ -140,7 +123,7 @@ export const contact = {
   email: "contact@aritoon.com",
 };
 
-export const stats = ["62,000+", "750,000+", "168,000+", "2,200+"] as const;
+export const stats = ["750,000+", "168,000+"] as const;
 
 export const reviewPlatforms = [
   { name: "Tripadvisor", rating: "4.9", count: "16,700+" },

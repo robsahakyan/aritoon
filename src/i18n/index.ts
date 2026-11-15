@@ -17,7 +17,7 @@ export function readTime(lang: Locale, minutes: string) {
 
 const pageCache = new Map<Locale, Record<string, PageContent>>();
 
-/** Every page for a locale, keyed by path without leading slash ("tours/group"). */
+/** Every page for a locale, keyed by path without leading slash ("tours/private"). */
 export function getPages(lang: Locale): Record<string, PageContent> {
   const cached = pageCache.get(lang);
   if (cached) return cached;

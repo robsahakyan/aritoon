@@ -31,19 +31,12 @@ const en: Content = {
     copyright: "© Aritoon LLC",
     reviewsOn: "on {platform}",
     nav: {
-      accommodation: "Accommodation",
-      whereToStay: "Where to stay",
-      apartments: "Apartments in Yerevan",
-      hotels: "Hotels in Armenia",
       tours: "Tours",
       findTour: "Find your tour",
-      groupTours: "Group Tours",
       privateTours: "Private Tours",
       tourPackages: "Tour Packages",
       transportation: "Transportation",
-      selectTransportation: "Select transportation",
       transfers: "Transfers",
-      hourlyRental: "Hourly Rental",
       businessEvents: "Business Events",
       planEvent: "Plan your event",
       venues: "Venues",
@@ -71,19 +64,15 @@ const en: Content = {
       "Discover guided tours, comfortable stays, reliable transfers, and curated experiences across Armenia.",
     heroCta: "Explore tours",
     services: [
-      { title: "Accommodation", description: "Apartments & hotels" },
-      { title: "Tours", description: "Group & private tours" },
-      { title: "Transportation", description: "Transfers & rentals" },
-      { title: "Business Events", description: "Venues & support" },
+      { title: "Private Tours", description: "Your own guide, driver & route" },
+      { title: "Transportation", description: "Airport & intercity transfers" },
     ],
     aboutHeading: "About Aritoon",
     aboutText:
       "A travel company in Yerevan with decades of experience, specializing in guided tours and day trips in Armenia. We arrange group and private tours, tour packages, transfers, apartment rentals, and hotel bookings.",
     statLabels: [
-      "Accommodation orders",
       "Travellers on our tours",
       "Transportation users",
-      "Business events organised",
     ],
     statPeriod: "in 24 years",
     guideHeading: "Armenia",
@@ -228,68 +217,11 @@ const en: Content = {
   },
 
   pages: {
-    accommodation: {
-      title: "Where to stay in Armenia",
-      summary: "Apartments in Yerevan and hand-picked hotels across Armenia.",
-      intro:
-        "Whether you want a central apartment in Yerevan or a hotel near the mountains, we help you find a comfortable place to stay that fits your plans and budget.",
-      sections: [
-        {
-          heading: "How booking works",
-          body: [
-            "Tell us your dates, number of guests, and preferred area. We send you suitable options, confirm availability, and arrange the booking — including airport transfers if you need them.",
-          ],
-        },
-      ],
-    },
-    "accommodation/apartments": {
-      title: "Apartments in Yerevan",
-      summary: "Furnished apartments in central Yerevan for short and long stays.",
-      intro:
-        "Stay like a local in a fully furnished apartment within walking distance of Republic Square, the Cascade, and Northern Avenue.",
-      sections: [
-        {
-          heading: "What's included",
-          body: [
-            "Apartments come with a kitchen, Wi-Fi, fresh linen, and towels. Daily, weekly, and monthly rates are available.",
-            "Our team meets you on arrival, hands over the keys, and is available by phone throughout your stay.",
-          ],
-        },
-      ],
-    },
-    "accommodation/hotels": {
-      title: "Hotels in Armenia",
-      summary: "Hotels in Yerevan and the regions, from boutique to business class.",
-      intro:
-        "From boutique hotels in Yerevan to guesthouses in Dilijan and spa hotels in Jermuk, we work with trusted hotels across the country.",
-      sections: [
-        {
-          heading: "Hotels for every itinerary",
-          body: [
-            "We can book a single hotel or arrange a chain of stays that matches your tour route, so every night is sorted before you arrive.",
-          ],
-        },
-      ],
-    },
     tours: {
       title: "Find your tour",
       summary: "Group tours, private tours, and multi-day packages across Armenia.",
       intro:
         "Explore Armenia's monasteries, mountains, lakes, and wine country with experienced local guides. Join a group, travel privately, or choose a complete package.",
-    },
-    "tours/group": {
-      title: "Group Tours",
-      summary: "Daily departures to Armenia's top sights with small groups.",
-      intro:
-        "Group tours are an easy, affordable way to see the highlights. Tours leave from central Yerevan with a professional guide and comfortable transport.",
-      sections: [
-        {
-          heading: "Popular day trips",
-          body: [
-            "Garni & Geghard · Lake Sevan & Dilijan · Khor Virap, Areni & Noravank · Etchmiadzin & Zvartnots · Tatev & the Wings of Tatev.",
-          ],
-        },
-      ],
     },
     "tours/private": {
       title: "Private Tours",
@@ -336,12 +268,6 @@ const en: Content = {
           body: ["Sedans, minivans, and buses are available for individuals and groups of any size."],
         },
       ],
-    },
-    "transportation/hourly": {
-      title: "Hourly Rental",
-      summary: "A car with a driver by the hour for business or sightseeing.",
-      intro:
-        "Rent a car with an experienced driver by the hour — ideal for business meetings, shopping, or exploring Yerevan on your own schedule.",
     },
     "business-events": {
       title: "Plan your event",

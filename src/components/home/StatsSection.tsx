@@ -13,7 +13,7 @@ export function StatsSection({ lang }: { lang: Locale }) {
           <p className="mt-3 leading-relaxed text-muted">{home.aboutText}</p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2">
           {stats.map((value, i) => (
             <div
               key={home.statLabels[i]}

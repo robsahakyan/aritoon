@@ -53,10 +53,10 @@ type Home = {
   heroTitle: string;
   heroText: string;
   heroCta: string;
-  services: [Service, Service, Service, Service];
+  services: [Service, Service];
   aboutHeading: string;
   aboutText: string;
-  statLabels: [string, string, string, string];
+  statLabels: [string, string];
   statPeriod: string;
   guideHeading: string;
   destinationsHeading: string;

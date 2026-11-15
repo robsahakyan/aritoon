@@ -4,10 +4,8 @@ import { localeHref, type Locale } from "@/i18n/config";
 import { getContent } from "@/i18n";
 
 const services = [
-  { href: "/accommodation", gradient: "from-rose-900/80 to-rose-700/60" },
-  { href: "/tours", gradient: "from-emerald-900/80 to-emerald-700/60" },
+  { href: "/tours/private", gradient: "from-emerald-900/80 to-emerald-700/60" },
   { href: "/transportation", gradient: "from-amber-900/80 to-amber-700/60" },
-  { href: "/business-events", gradient: "from-slate-900/80 to-slate-700/60" },
 ];
 
 export function Hero({ lang }: { lang: Locale }) {
@@ -40,7 +38,7 @@ export function Hero({ lang }: { lang: Locale }) {
           </Link>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2">
           {services.map((service, i) => (
             <Link
               key={service.href}
